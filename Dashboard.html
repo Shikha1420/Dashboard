@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<div id="app">
+    <div class="dashboard-layout">
+        <nav class="dashboard-navigation">
+            <ul>
+                <li><a href="#" onclick="showTab('user-details')">User Details</a></li>
+                <li><a href="#" onclick="showTab('account-creation')">Account Creation</a></li>
+            </ul>
+        </nav>
+
+        <div class="dashboard-content">
+            <div id="user-details" class="tab-content">
+                <input type="text" placeholder="Search..." oninput="searchUsers(this.value)">
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>ID</th>
+                            <th>Creation Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        
+                    </tbody>
+                </table>
+                
+                <div id="userReportModal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <button onclick="generateReport()">Generate Report</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="account-creation" class="tab-content" style="display: none;">
+                <form onsubmit="submitForm(); return false;">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+
+                    <button type="submit">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
